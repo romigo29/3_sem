@@ -1,0 +1,25 @@
+﻿Сборка начата 03.10.2024 15:12:16.
+Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\АиСД\Лаб 4 алгоритм Флойда-Уоршелла\FloydWarshallAlgorithm\FloydWarshallAlgorithm\FloydWarshallAlgorithm.vcxproj" в узле 2 (целевые объекты Rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\FloydWar.b135ca52.tlog\FloydWarshallAlgorithm.lastbuildstate" удаляется.
+       PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Создание "Debug\FloydWar.b135ca52.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\FloydWar.b135ca52.tlog\unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BSTU\3 семестр\АиСД\Лаб 4 алгоритм Флойда-Уоршелла\FloydWarshallAlgorithm\Debug\FloydWarshallAlgorithm.exe" /INCREMENTAL /ILK:"Debug\FloydWarshallAlgorithm.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\BSTU\3 семестр\АиСД\Лаб 4 алгоритм Флойда-Уоршелла\FloydWarshallAlgorithm\Debug\FloydWarshallAlgorithm.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BSTU\3 семестр\АиСД\Лаб 4 алгоритм Флойда-Уоршелла\FloydWarshallAlgorithm\Debug\FloydWarshallAlgorithm.lib" /MACHINE:X86 Debug\main.obj
+         FloydWarshallAlgorithm.vcxproj -> D:\BSTU\3 семестр\АиСД\Лаб 4 алгоритм Флойда-Уоршелла\FloydWarshallAlgorithm\Debug\FloydWarshallAlgorithm.exe
+       FinalizeBuildStatus:
+         Файл "Debug\FloydWar.b135ca52.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "Debug\FloydWar.b135ca52.tlog\FloydWarshallAlgorithm.lastbuildstate".
+     1>Сборка проекта "D:\BSTU\3 семестр\АиСД\Лаб 4 алгоритм Флойда-Уоршелла\FloydWarshallAlgorithm\FloydWarshallAlgorithm\FloydWarshallAlgorithm.vcxproj" завершена (целевые объекты Rebuild).
+
+Сборка успешно завершена.
+    Предупреждений: 0
+    Ошибок: 0
+
+Прошло времени 00:00:04.17
