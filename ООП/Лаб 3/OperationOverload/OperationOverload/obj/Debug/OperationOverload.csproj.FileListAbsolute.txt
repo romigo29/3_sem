@@ -1,0 +1,7 @@
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\bin\Debug\OperationOverload.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\bin\Debug\OperationOverload.exe
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\bin\Debug\OperationOverload.pdb
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\obj\Debug\OperationOverload.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\obj\Debug\OperationOverload.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\obj\Debug\OperationOverload.exe
+D:\BSTU\3 семестр\ООП\Лаб 3\OperationOverload\OperationOverload\obj\Debug\OperationOverload.pdb

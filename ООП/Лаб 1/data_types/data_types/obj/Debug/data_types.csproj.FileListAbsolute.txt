@@ -1,0 +1,10 @@
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\bin\Debug\data_types.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\bin\Debug\data_types.exe
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\bin\Debug\data_types.pdb
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\obj\Debug\data_types.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\obj\Debug\data_types.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\obj\Debug\data_types.exe
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\obj\Debug\data_types.pdb
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\bin\Debug\System.ValueTuple.dll
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\bin\Debug\System.ValueTuple.xml
+D:\BSTU\3 семестр\ООП\Лаб 1\data_types\data_types\obj\Debug\data_types.csproj.Up2Date

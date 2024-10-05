@@ -1,0 +1,7 @@
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\bin\Debug\ClassTypes.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\bin\Debug\ClassTypes.exe
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\bin\Debug\ClassTypes.pdb
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\obj\Debug\ClassTypes.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\obj\Debug\ClassTypes.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\obj\Debug\ClassTypes.exe
+D:\BSTU\3 семестр\ООП\Лаб 2\ClassTypes\ClassTypes\obj\Debug\ClassTypes.pdb
