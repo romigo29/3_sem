@@ -70,4 +70,6 @@ namespace FST
 		delete[] rstates;
 		return(rc ? (fst.rstates[fst.nstates - 1] == lstring) : rc);
 	}
+
+	
 }

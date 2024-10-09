@@ -5,10 +5,6 @@
 namespace In {     // посимвольно вводит данные из файла, заданного параметром
     IN getin(wchar_t infile[]) {
         IN in; // структура in для заполнения
-        in.size = 0;
-        in.error_size = 0;
-        in.lines = 0;
-        in.ignore = 0;
         int cols = 1, error_pos = 0;
         in.text = new unsigned char[IN_MAX_LEN_TEXT];
         in.forbiddenChar = new unsigned char[IN_MAX_LEN_TEXT];
@@ -60,15 +56,22 @@ namespace In {     // посимвольно вводит данные из фа
                     break;
 
                 case IN::S: 
+
                     if (buff[position - 1] == SPACE) {
                         in.text[in.size - 1] = (unsigned)buff[position];
                         in.ignore++;
+
+                        if (buff[position + 1] == SPACE) {
+                            position++;
+                            in.ignore++;
+                        }
                     }
                     else if (buff[position + 1] == SPACE) {
                         in.text[in.size++] = (unsigned)buff[position];
                         position++;
                         in.ignore++;
                     }
+                    
                     else {
                         in.text[in.size++] = (unsigned)buff[position];
                     }

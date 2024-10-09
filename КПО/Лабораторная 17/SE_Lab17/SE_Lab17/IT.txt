@@ -1,0 +1,5 @@
+   id  datatype    idtype      Line     value     Scope
+   fi       INT         V         1         0         fi
+    x       INT         V         1         0         fi
+    y       INT         V         1         0         fi
+    z       INT         V         3         0         fi

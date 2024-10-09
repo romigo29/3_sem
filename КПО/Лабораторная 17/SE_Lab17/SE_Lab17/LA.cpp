@@ -8,83 +8,99 @@
 
 namespace LA
 {
-	LT::LexTable __LexTable = LT::Create(LT_MAXSIZE - 1);
-	IT::IdTable __IdTable = IT::Create(TI_MAXSIZE - 1);
+	LT::LexTable __LexTable = LT::Create(LT_MAXSIZE - 1);	//Таблица для хранения лексем
+	IT::IdTable __IdTable = IT::Create(TI_MAXSIZE - 1);		//Таблица для хранения идентификаторов
+
+	//различные состояния программы
 	bool stringFlag = false;
 	bool parmFlag = false;
 	bool functionFlag = false;
 	bool mainFlag = false;
-	bool callFunc;
-	char* str = new char[MAX_LEX_SIZE];
-	bool declareFlag = false;
 
-	void Add_LT(int line, char token)
-	{
-		LT::Entry entry;
-		entry.sn = line;
-		memset(entry.lexema, '\0', strlen(entry.lexema) - 1);
-		entry.lexema[0] = token;
-		LT::Add(__LexTable, entry);
-	}
+	char* str = new char[MAX_LEX_SIZE];		//хранение текущей лексемы
+
 	char FST()
 	{
 		FST_INT
-			FST_STRING
-			FST_FUNC
-			FST_DECLARE
-			FST_RETURN
-			FST_MAIN
-			FST_PRINT
-			FST_LITERAL
-			FST_IDENF
-			if (FST::Execute(_int))
-				return LEX_INTEGER;
-		if (FST::Execute(_string))
+		FST_STRING
+		FST_FUNC
+		FST_DECLARE
+		FST_RETURN
+		FST_MAIN
+		FST_PRINT
+		FST_LITERAL
+		FST_IDENF
+
+		FstLexeme lexemes[] = {
+			{_int, LEX_INTEGER, nullptr},
+			{_string, LEX_STRING, &stringFlag},
+			{_function, LEX_FUNCTION, nullptr},
+			{_declare, LEX_DECLARE, nullptr},
+			{_return, LEX_RETURN, nullptr},
+			{_main, LEX_MAIN, &mainFlag},
+			{_print, LEX_PRINT, nullptr},
+			{literal_int, LEX_LITERAL, nullptr},
+			{idenf, LEX_ID, nullptr}
+		};
+
+		for (int i = 0; i < FST_AMOUNT; i++) {
+			if (Execute(lexemes[i].fst)) {
+				if (lexemes[i].flag) {
+					*lexemes[i].flag = true;
+				}
+				return lexemes[i].lexeme;
+			}
+		}
+
+		if (Execute(_int)) {
+			return LEX_INTEGER;
+		}
+		if (Execute(_string))
 		{
 			stringFlag = true;
 			return LEX_STRING;
 		}
-		if (FST::Execute(_function))
+		if (Execute(_function))
 			return LEX_FUNCTION;
-		if (FST::Execute(_declare))
+		if (Execute(_declare))
 			return LEX_DECLARE;
-		if (FST::Execute(_return))
+		if (Execute(_return))
 			return LEX_RETURN;
-		if (FST::Execute(_main))
+		if (Execute(_main))
 		{
 			mainFlag = true;
 			return LEX_MAIN;
 		}
-		if (FST::Execute(_print))
+		if (Execute(_print))
 			return LEX_PRINT;
-		if (FST::Execute(literal_int))
+		if (Execute(literal_int))
 			return LEX_LITERAL;
-		if (FST::Execute(idenf))
+		if (Execute(idenf))
 			return LEX_ID;
 		return NULL;
 	}
+
 	void LA(Parm::PARM parm, In::IN in)
 	{
 		int indexIT;
-		setlocale(LC_ALL, "rus");
 		LT::Entry current_entry_LT;
 		int bufferIndex = 0;
 		current_entry_LT.sn = 0;
 		current_entry_LT.idxTI = 0;
 		current_entry_LT.lexema[0] = NULL;
-		std::stack<IT::Entry*> scope;
+		stack<IT::Entry*> scope;
 		scope.push(NULL);
 		int number_literal = 0;
 		IT::Entry current_entry_IT;
 		__LexTable.size = 0;
 		int currentLine = 1;
-		std::ofstream LT_file;
-		std::ofstream IT_file;
+		ofstream LT_file;
+		ofstream IT_file;
 		LT_file.open("LT.txt");
 		IT_file.open("IT.txt");
 		for (int i = 0; i < in.size; i++)
 		{
-			if (((in.text[i] >= 'A' && in.text[i] <= 'Z') || (in.text[i] >= 'a' && in.text[i] <= 'z') || (in.text[i] >= '0' && in.text[i] <= '9') || (in.text[i] >= 0xC0 && in.text[i] <= 0xFF) || (in.text[i] >= 0xE0 && in.text[i] <= 0xFF) || in.text[i] == '\'') && in.text[i] != ' ')
+			if ((in.code[(int)in.text[i]] == In::IN::T || in.text[i] == '\'') && in.code[(int)in.text[i]] != In::IN::P)
 			{
 				str[bufferIndex] = in.text[i];
 				bufferIndex++;
@@ -184,13 +200,13 @@ namespace LA
 							throw ERROR_THROW(106);
 						}
 					}
-					std::memset(current_entry_IT.id, NULL, 5);
+					memset(current_entry_IT.id, NULL, 5);
 					current_entry_IT.iddatatype = IT::INT;
 					current_entry_IT.value.vint = NULL;
 				}
 
 				bufferIndex = 0;
-				std::memset(str, NULL, bufferIndex + 1);
+				memset(str, NULL, bufferIndex + 1);
 			}
 			if (current_entry_LT.lexema[0] != NULL)
 			{
@@ -276,10 +292,7 @@ namespace LA
 					parmFlag = true;
 					scope.push(&__IdTable.table[__IdTable.size - 1]);
 				}
-				/*if (__IdTable.table[__LexTable.table[__LexTable.size - 1].idxTI].idtype == IT::F)
-				{
-					parmFlag = true;
-				}*/
+
 				break;
 			case RIGHTTHESIS:
 				current_entry_LT.lexema[0] = LEX_RIGHTTHESIS;

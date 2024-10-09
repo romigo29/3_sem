@@ -25,19 +25,6 @@ namespace IT
 		{
 			throw ERROR_THROW(117);
 		}
-		/*for (int i = 0; i < idtable.size - 1; i++)
-		{
-			if (strcmp(entry.id,idtable.table[i].id))
-			{
-				if (entry.iddatatype == idtable.table[i].iddatatype)
-				{
-					if (entry.idtype == idtable.table[i].idtype)
-					{
-						throw ERROR_THROW(105);
-					}
-				}
-			}
-		}*/
 
 		memcpy(&idtable.table[idtable.size], &entry, sizeof(Entry));
 		idtable.size += 1;

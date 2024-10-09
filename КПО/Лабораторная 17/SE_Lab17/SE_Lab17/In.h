@@ -29,12 +29,12 @@ namespace In
     struct IN
     {
         enum { P = 256, S = 512, T = 1024, F = 2048, I = 4096};
-        int size;
-        int lines;
-        int ignore;
+        int size = 0;
+        int lines = 0;
+        int ignore = 0;
         unsigned char* text;
         int code[256] = IN_CODE_TABLE_2;
-        int error_size;                 //количество запрещенной символов
+        int error_size = 0;                 //количество запрещенной символов
         unsigned char* forbiddenChar;   //хранение запрещенных символов
         int* errorLine;                 //номера строк с запрещенными символами
         int* errorCol;                  //позиции запрещенных символов

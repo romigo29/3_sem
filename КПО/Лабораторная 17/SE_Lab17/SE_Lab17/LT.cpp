@@ -25,6 +25,17 @@ namespace LT
 		lextable.table[lextable.size] = entry;
 		lextable.size++;
 	}
+
+	////ƒобавление лексемы в лексическую таблицу
+	//void Add_LT(int line, char token, LexTable __LexTable)
+	//{
+	//	Entry entry;
+	//	entry.sn = line;
+	//	memset(entry.lexema, '\0', strlen(entry.lexema) - 1);
+	//	entry.lexema[0] = token;
+	//	Add(__LexTable, entry);
+	//}
+
 	Entry GetEntry(LexTable& lextable, int n)
 	{
 		if (n > LT_MAXSIZE || n < 0)
