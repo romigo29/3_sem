@@ -1,4 +1,4 @@
-﻿Сборка начата 09.10.2024 19:37:18.
+﻿Сборка начата 10.10.2024 14:39:05.
 Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\SE_Lab17.vcxproj" в узле 2 (целевые объекты Build).
      1>C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (SE_Lab15.vcxproj).  Это может привести к ошибкам очистки и перестроения.
          Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
@@ -6,21 +6,11 @@
          Создание "Debug\SE_Lab17.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
          Обращение к "Debug\SE_Lab17.tlog\unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt Error.cpp IT.cpp In.cpp LA.cpp LT.cpp Log.cpp Out.cpp Parm.cpp SE_Lab17.cpp
-         Error.cpp
-         IT.cpp
-         In.cpp
-     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\In.cpp(27,45): warning C4018: <: несоответствие типов со знаком и без знака
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"Debug\\" /Fd"Debug\vc143.pdb" /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt LA.cpp
          LA.cpp
-     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(231,24): warning C4018: <: несоответствие типов со знаком и без знака
-     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(380,23): warning C4018: <: несоответствие типов со знаком и без знака
-     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(387,23): warning C4018: <: несоответствие типов со знаком и без знака
-         LT.cpp
-         Log.cpp
-         Out.cpp
-         Parm.cpp
-         SE_Lab17.cpp
-         Создание кода...
+     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(281,43): warning C4018: <: несоответствие типов со знаком и без знака
+     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(451,31): warning C4018: <: несоответствие типов со знаком и без знака
+     1>D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(458,31): warning C4018: <: несоответствие типов со знаком и без знака
        Link:
          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\Debug\SE_Lab17.exe" /INCREMENTAL /ILK:"Debug\SE_Lab17.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\Debug\SE_Lab17.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\Debug\SE_Lab17.lib" /MACHINE:X86 Debug\Error.obj
          Debug\FST.obj
@@ -47,12 +37,11 @@
 
        "D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\SE_Lab17.vcxproj" (целевой объект Build ) (1) ->
        (Целевой объект ClCompile) -> 
-         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\In.cpp(27,45): warning C4018: <: несоответствие типов со знаком и без знака
-         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(231,24): warning C4018: <: несоответствие типов со знаком и без знака
-         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(380,23): warning C4018: <: несоответствие типов со знаком и без знака
-         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(387,23): warning C4018: <: несоответствие типов со знаком и без знака
+         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(281,43): warning C4018: <: несоответствие типов со знаком и без знака
+         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(451,31): warning C4018: <: несоответствие типов со знаком и без знака
+         D:\BSTU\3 семестр\КПО\Лабораторная 17\SE_Lab17\SE_Lab17\LA.cpp(458,31): warning C4018: <: несоответствие типов со знаком и без знака
 
-    Предупреждений: 5
+    Предупреждений: 4
     Ошибок: 0
 
-Прошло времени 00:00:05.52
+Прошло времени 00:00:03.70

@@ -5,392 +5,463 @@
 #include <stdio.h>
 #include <string.h>
 #include <iomanip>
+#define FST_AMOUNT 9
+#define ID_SIZE 5
 
 namespace LA
 {
-	LT::LexTable __LexTable = LT::Create(LT_MAXSIZE - 1);	//Таблица для хранения лексем
-	IT::IdTable __IdTable = IT::Create(TI_MAXSIZE - 1);		//Таблица для хранения идентификаторов
+    LT::LexTable __LexTable = LT::Create(LT_MAXSIZE - 1);  //Таблица для хранения лексем
+    IT::IdTable __IdTable = IT::Create(TI_MAXSIZE - 1);    //Таблица для хранения идентификаторов
 
-	//различные состояния программы
-	bool stringFlag = false;
-	bool parmFlag = false;
-	bool functionFlag = false;
-	bool mainFlag = false;
+    //различные состояния программы
+    bool stringFlag = false;
+    bool parmFlag = false;
+    bool functionFlag = false;
+    bool mainFlag = false;
+    bool declareFunctionflag = false;
+    bool addedToITFlag = false; // Флаг добавления в таблицу идентификаторов
 
-	char* str = new char[MAX_LEX_SIZE];		//хранение текущей лексемы
+    char* str = new char[MAX_LEX_SIZE];    //хранение текущей лексемы
 
-	char FST()
-	{
-		FST_INT
-		FST_STRING
-		FST_FUNC
-		FST_DECLARE
-		FST_RETURN
-		FST_MAIN
-		FST_PRINT
-		FST_LITERAL
-		FST_IDENF
+    char FST()
+    {
+        FST_INT
+            FST_STRING
+            FST_FUNC
+            FST_DECLARE
+            FST_RETURN
+            FST_MAIN
+            FST_PRINT
+            FST_LITERAL
+            FST_IDENF
 
-		FstLexeme lexemes[] = {
-			{_int, LEX_INTEGER, nullptr},
-			{_string, LEX_STRING, &stringFlag},
-			{_function, LEX_FUNCTION, nullptr},
-			{_declare, LEX_DECLARE, nullptr},
-			{_return, LEX_RETURN, nullptr},
-			{_main, LEX_MAIN, &mainFlag},
-			{_print, LEX_PRINT, nullptr},
-			{literal_int, LEX_LITERAL, nullptr},
-			{idenf, LEX_ID, nullptr}
-		};
+            FstLexeme lexemes[] = {
+            {_int, LEX_INTEGER, nullptr},
+            {_string, LEX_STRING, &stringFlag},
+            {_function, LEX_FUNCTION, nullptr},
+            {_declare, LEX_DECLARE, nullptr},
+            {_return, LEX_RETURN, nullptr},
+            {_main, LEX_MAIN, &mainFlag},
+            {_print, LEX_PRINT, nullptr},
+            {literal_int, LEX_LITERAL, nullptr},
+            {idenf, LEX_ID, nullptr}
+        };
 
-		for (int i = 0; i < FST_AMOUNT; i++) {
-			if (Execute(lexemes[i].fst)) {
-				if (lexemes[i].flag) {
-					*lexemes[i].flag = true;
-				}
-				return lexemes[i].lexeme;
-			}
-		}
+        for (int i = 0; i < FST_AMOUNT; i++) {
+            if (Execute(lexemes[i].fst)) {
+                if (lexemes[i].flag) {
+                    *lexemes[i].flag = true;
+                }
+                return lexemes[i].lexeme;
+            }
+        }
 
-		if (Execute(_int)) {
-			return LEX_INTEGER;
-		}
-		if (Execute(_string))
-		{
-			stringFlag = true;
-			return LEX_STRING;
-		}
-		if (Execute(_function))
-			return LEX_FUNCTION;
-		if (Execute(_declare))
-			return LEX_DECLARE;
-		if (Execute(_return))
-			return LEX_RETURN;
-		if (Execute(_main))
-		{
-			mainFlag = true;
-			return LEX_MAIN;
-		}
-		if (Execute(_print))
-			return LEX_PRINT;
-		if (Execute(literal_int))
-			return LEX_LITERAL;
-		if (Execute(idenf))
-			return LEX_ID;
-		return NULL;
-	}
+        return NULL;
+    }
 
-	void LA(Parm::PARM parm, In::IN in)
-	{
-		int indexIT;
-		LT::Entry current_entry_LT;
-		int bufferIndex = 0;
-		current_entry_LT.sn = 0;
-		current_entry_LT.idxTI = 0;
-		current_entry_LT.lexema[0] = NULL;
-		stack<IT::Entry*> scope;
-		scope.push(NULL);
-		int number_literal = 0;
-		IT::Entry current_entry_IT;
-		__LexTable.size = 0;
-		int currentLine = 1;
-		ofstream LT_file;
-		ofstream IT_file;
-		LT_file.open("LT.txt");
-		IT_file.open("IT.txt");
-		for (int i = 0; i < in.size; i++)
-		{
-			if ((in.code[(int)in.text[i]] == In::IN::T || in.text[i] == '\'') && in.code[(int)in.text[i]] != In::IN::P)
-			{
-				str[bufferIndex] = in.text[i];
-				bufferIndex++;
-				if (bufferIndex >= MAX_LEX_SIZE)
-				{
-					throw ERROR_THROW(119);
-				}
-			}
-			else
-			{
-				str[bufferIndex] = '\0';
-				current_entry_LT.lexema[0] = FST();
-				if (current_entry_LT.lexema[0] == LEX_MAIN)
-				{
-					mainFlag = true;
-					current_entry_LT.idxTI = __IdTable.size;
-					memcpy(current_entry_IT.id, str, 5);
-					current_entry_IT.id[5] = '\0';
-					current_entry_IT.iddatatype = IT::INT;
-					current_entry_IT.value.vint = NULL;
-					current_entry_IT.idxfirstLE = currentLine;
-					current_entry_IT.scope = NULL;
-					indexIT = IT::search(__IdTable, current_entry_IT);
-					if (indexIT > 0)
-					{
-						throw ERROR_THROW(105);
-					}
-					if (indexIT == -1)
-					{
-						IT::Add(__IdTable, current_entry_IT);
-					}
-				}
-				if (current_entry_LT.lexema[0] == LEX_LITERAL)
-				{
-					current_entry_LT.idxTI = __IdTable.size;
-					sprintf_s(current_entry_IT.id, "L%d", number_literal);
-					current_entry_IT.iddatatype = IT::INT;
-					current_entry_IT.idtype = IT::L;
-					current_entry_IT.idxfirstLE = currentLine;
-					current_entry_IT.value.vint = atoi(str);
-					current_entry_IT.scope = scope.top();
-					IT::Add(__IdTable, current_entry_IT);
-					number_literal++;
-				}
-				if (current_entry_LT.lexema[0] == LEX_ID)
-				{
-					current_entry_IT.scope = scope.top();
-					current_entry_LT.idxTI = __IdTable.size;
-					memcpy(current_entry_IT.id, str, 5);
-					current_entry_IT.id[5] = '\0';
-					current_entry_IT.iddatatype = IT::INT;
-					current_entry_IT.value.vint = NULL;
-					current_entry_IT.idxfirstLE = currentLine;
-					if (stringFlag)
-					{
-						stringFlag = false;
-						current_entry_IT.iddatatype = IT::STR;
-						strcpy_s(current_entry_IT.value.vstr->str, "");
 
-					}
-					current_entry_IT.idtype = IT::V;
-					if (parmFlag)
-					{
-						current_entry_IT.idtype = IT::P;
-						parmFlag = true;
-					}
-					if (parmFlag)
-					{
-						current_entry_IT.idtype = IT::P;
-					}
-					if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_FUNCTION)
-					{
-						current_entry_IT.idtype = IT::F;
-						functionFlag = true;
-					}
-					if (__LexTable.table[__LexTable.size - 2].lexema[0] == LEX_DECLARE || current_entry_IT.idtype == IT::F || current_entry_IT.idtype == IT::P)
-					{
-						indexIT = IT::search(__IdTable, current_entry_IT);
-						if (indexIT > 0)
-						{
-							throw ERROR_THROW(105);
-						}
-						if (indexIT == -1)
-						{
-							IT::Add(__IdTable, current_entry_IT);
-						}
-					}
-					if (__LexTable.table[__LexTable.size - 2].lexema[0] != LEX_DECLARE && current_entry_IT.idtype == IT::V)
-					{
-						indexIT = IT::search(__IdTable, current_entry_IT);
-						if (indexIT >= 0)
-						{
-							current_entry_LT.idxTI = indexIT;
-						}
-						else
-						{
-							throw ERROR_THROW(106);
-						}
-					}
-					memset(current_entry_IT.id, NULL, 5);
-					current_entry_IT.iddatatype = IT::INT;
-					current_entry_IT.value.vint = NULL;
-				}
+    void LA(Parm::PARM parm, In::IN in)
+    {
+        int indexIT;
+        LT::Entry current_entry_LT;
+        int bufferIndex = 0;
+        current_entry_LT.sn = 0;
+        current_entry_LT.idxTI = 0;
+        current_entry_LT.lexema[0] = NULL;
+        stack<IT::Entry*> scope;
+        scope.push(NULL);
+        int number_literal = 0;
+        IT::Entry current_entry_IT;
+        __LexTable.size = 0;
+        int currentLine = 1;
+        ofstream LT_file;
+        ofstream IT_file;
+        LT_file.open("LT.txt");
+        IT_file.open("IT.txt");
+        for (int i = 0; i < in.size; i++)
+        {
+            if ((in.code[(int)in.text[i]] == In::IN::T || in.text[i] == '\'') && in.code[(int)in.text[i]] != In::IN::P)
+            {
+                str[bufferIndex++] = in.text[i];
+                if (bufferIndex >= MAX_LEX_SIZE)
+                {
+                    throw ERROR_THROW(119);
+                }
+            }
+            else
+            {
+                str[bufferIndex] = '\0';
+                current_entry_LT.lexema[0] = FST();
+                switch (current_entry_LT.lexema[0])
+                {
+                case LEX_MAIN:
+                    mainFlag = true;
+                    current_entry_LT.idxTI = __IdTable.size;
+                    memcpy(current_entry_IT.id, str, 5);
+                    current_entry_IT.id[5] = '\0';
+                    current_entry_IT.iddatatype = IT::INT;
+                    current_entry_IT.value.vint = NULL;
+                    current_entry_IT.idxfirstLE = currentLine;
+                    current_entry_IT.scope = NULL;
+                    indexIT = IT::search(__IdTable, current_entry_IT);
+                    if (indexIT > 0)
+                    {
+                        throw ERROR_THROW(105);
+                    }
+                    if (indexIT == -1)
+                    {
+                        IT::Add(__IdTable, current_entry_IT);
+                    }
+                    break;
+                case LEX_LITERAL:
+                    current_entry_LT.idxTI = __IdTable.size;
+                    sprintf_s(current_entry_IT.id, "L%d", number_literal);
+                    current_entry_IT.iddatatype = IT::INT;
+                    current_entry_IT.idtype = IT::L;
+                    current_entry_IT.idxfirstLE = currentLine;
+                    current_entry_IT.value.vint = atoi(str);
+                    current_entry_IT.scope = scope.top();
+                    current_entry_LT.idxTI = __IdTable.size; // Установка индекса для лексемы
+                    IT::Add(__IdTable, current_entry_IT);
+                    number_literal++;
+                    break;
+                case LEX_ID:
+                    // Проверка области видимости
+                    if (scope.empty())
+                        current_entry_IT.scope = NULL; // Если стек пуст, область видимости равна NULL
+                    else
+                        current_entry_IT.scope = scope.top(); // Установка области видимости как вершину стека
 
-				bufferIndex = 0;
-				memset(str, NULL, bufferIndex + 1);
-			}
-			if (current_entry_LT.lexema[0] != NULL)
-			{
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
 
-			}
-			switch (in.text[i])
-			{
-			case MARK:
-				if (str[0] == '\'' && bufferIndex != 1)
-				{
-					current_entry_LT.idxTI = __IdTable.size;
-					str[bufferIndex] = '\0';
-					current_entry_LT.lexema[0] = LEX_LITERAL;
-					number_literal++;
-					sprintf_s(current_entry_IT.id, "L%d", number_literal);
-					current_entry_IT.iddatatype = IT::STR;
-					current_entry_IT.idtype = IT::L;
-					current_entry_IT.idxfirstLE = currentLine;
-					for (int i = 0; i < strlen(str); i++)
-					{
-						current_entry_IT.value.vstr->str[i] = str[i];
-					}
-					current_entry_IT.value.vstr->str[strlen(str)] = '\0';
-					current_entry_IT.value.vstr->len = strlen(current_entry_IT.value.vstr->str);
-					current_entry_LT.sn = currentLine;
-					current_entry_IT.scope = scope.top();
-					LT::Add(__LexTable, current_entry_LT);
-					IT::Add(__IdTable, current_entry_IT);
-					current_entry_LT.lexema[0] = NULL;
-					break;
-				}
-				break;
-			case NEW_LINE:
-				current_entry_LT.lexema[0] = '\n';
-				current_entry_LT.sn = currentLine;
-				currentLine++;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case SEMICOLON:
-				current_entry_LT.lexema[0] = LEX_SEMICOLON;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_BRACELET)
-				{
-					scope.pop();
-					functionFlag = false;
-				}
-				break;
-			case COMMA:
-				current_entry_LT.lexema[0] = LEX_COMMA;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case LEFT_BRACE:
-				if (mainFlag)
-				{
-					scope.push(&__IdTable.table[__IdTable.size - 1]);
-				}
-				current_entry_LT.lexema[0] = LEX_LEFTBRACE;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case RIGHT_BRACE:
-				current_entry_LT.lexema[0] = LEX_BRACELET;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case LEFTTHESIS:
-				current_entry_LT.lexema[0] = LEX_LEFTTHESIS;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				if (__LexTable.table[__LexTable.size - 3].lexema[0] == LEX_FUNCTION)
-				{
-					parmFlag = true;
-					scope.push(&__IdTable.table[__IdTable.size - 1]);
-				}
+                    current_entry_LT.idxTI = __IdTable.size; // Установка индекса для лексемы
+                    memcpy(current_entry_IT.id, str, ID_SIZE); // Копирование идентификатора в таблицу идентификаторов
+                    current_entry_IT.id[ID_SIZE] = '\0'; // Завершение строки идентификатора
+                    current_entry_IT.iddatatype = IT::INT; // Установка типа данных идентификатора
+                    current_entry_IT.value.vint = NULL; // Значение не инициализировано
+                    current_entry_IT.idxfirstLE = currentLine; // Номер строки, где находится идентификатор
+                    current_entry_IT.idtype = IT::V; // Установка типа идентификатора как переменной
 
-				break;
-			case RIGHTTHESIS:
-				current_entry_LT.lexema[0] = LEX_RIGHTTHESIS;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				parmFlag = false;
-				break;
-			case PLUS:
-				current_entry_LT.lexema[0] = LEX_PLUS;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case MINUS:
-				current_entry_LT.lexema[0] = LEX_MINUS;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case STAR:
-				current_entry_LT.lexema[0] = LEX_STAR;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case DIRSLASH:
-				current_entry_LT.lexema[0] = LEX_DIRSLASH;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			case EQUAL:
-				current_entry_LT.lexema[0] = LEX_EQUAL;
-				current_entry_LT.sn = currentLine;
-				LT::Add(__LexTable, current_entry_LT);
-				current_entry_LT.lexema[0] = NULL;
-				break;
-			}
-		}
-		currentLine = 1;
-		LT_file << currentLine;
-		LT_file << '\t';
-		for (int i = 0; i < __LexTable.size; i++)
-		{
-			current_entry_LT = LT::GetEntry(__LexTable, i);
-			if (currentLine != current_entry_LT.sn)
-			{
-				currentLine = current_entry_LT.sn;
-				LT_file << currentLine;
-				LT_file << '\t';
-			}
-			LT_file << current_entry_LT.lexema[0];
-		}
-		LT_file.close();
-		IT_file << std::setw(5) << "id"
-			<< std::setw(10) << "datatype"
-			<< std::setw(10) << "idtype"
-			<< std::setw(10) << "Line"
-			<< std::setw(10) << "value"
-			<< std::setw(10) << "Scope" << std::endl;
+                    // Обработка случая, если предыдущая лексема - это объявление
+                    if (__LexTable.table[__LexTable.size - 2].lexema[0] == LEX_DECLARE)
+                    {
+                        // Если последняя лексема - строка и установлен флаг
+                        if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_STRING && stringFlag)
+                        {
+                            current_entry_IT.iddatatype = IT::STR; // Установка типа данных идентификатора как строки
+                            strcpy_s(current_entry_IT.value.vstr->str, ""); // Инициализация строки
+                            stringFlag = false; // Сброс флага
+                        }
+                        indexIT = IT::search(__IdTable, current_entry_IT); // Поиск идентификатора в таблице
 
-		for (int i = 0; i < __IdTable.size; i++) {
-			IT::Entry temp_entry = IT::GetEntry(__IdTable, i); // Получаем временный объект
-			memcpy(&current_entry_IT, &temp_entry, sizeof(LT::Entry));
-			IT_file << std::setw(5) << current_entry_IT.id;
-			if (current_entry_IT.iddatatype == 1)
-				IT_file << std::setw(10) << "INT";
-			if (current_entry_IT.iddatatype == 2)
-				IT_file << std::setw(10) << "STR";
-			if (current_entry_IT.idtype == IT::V)
-				IT_file << std::setw(10) << "V";
-			if (current_entry_IT.idtype == IT::L)
-				IT_file << std::setw(10) << "L";
-			if (current_entry_IT.idtype == IT::F)
-				IT_file << std::setw(10) << "F";
-			if (current_entry_IT.idtype == IT::P)
-				IT_file << std::setw(10) << "P";
-			IT_file << std::setw(10) << current_entry_IT.idxfirstLE;
+                        if (indexIT != -1) // Если идентификатор уже существует
+                        {
+                            throw ERROR_THROW(105); // Ошибка: идентификатор уже существует
+                        }
+                        current_entry_LT.idxTI = __IdTable.size; // Установка индекса для лексемы
+                        IT::Add(__IdTable, current_entry_IT); // Добавление идентификатора в таблицу
+                        addedToITFlag = true; // Установка флага добавления
+                    }
 
-			if (current_entry_IT.iddatatype == IT::INT) {
-				IT_file << std::setw(10) << current_entry_IT.value.vint;
-			}
-			if (current_entry_IT.iddatatype == IT::STR) {
-				IT_file << std::setw(7);
-				for (int j = 0; j < strlen(current_entry_IT.value.vstr->str); j++) {
-					IT_file << current_entry_IT.value.vstr->str[j];
-				}
-				IT_file << std::setw(10);
-			}
-			IT_file << std::setw(10);
-			if (current_entry_IT.scope != NULL) {
-				for (int j = 0; j < strlen(current_entry_IT.scope->id); j++)
-				{
-					IT_file << current_entry_IT.scope->id[j];
-				}
-			}
-			IT_file << std::endl;
-		}
-		IT_file.close();
-	}
+                    // Обработка случая, если предыдущая лексема - это функция
+                    if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_FUNCTION)
+                    {
+                        current_entry_IT.idtype = IT::F; // Установка типа идентификатора как функции
+                        declareFunctionflag = true; // Установка флага объявления функции
+                        // Если предыдущая лексема - строка и установлен флаг
+                        if (__LexTable.table[__LexTable.size - 2].lexema[0] == LEX_STRING && stringFlag)
+                        {
+                            current_entry_IT.iddatatype = IT::STR; // Установка типа данных идентификатора как строки
+                            strcpy_s(current_entry_IT.value.vstr->str, ""); // Инициализация строки
+                            stringFlag = false; // Сброс флага
+                        }
+                        indexIT = IT::search(__IdTable, current_entry_IT); // Поиск идентификатора в таблице
+                        if (indexIT != -1) // Если идентификатор уже существует
+                        {
+                            throw ERROR_THROW(105); // Ошибка: идентификатор уже существует
+                        }
+                        current_entry_LT.idxTI = __IdTable.size; // Установка индекса для лексемы
+                        IT::Add(__IdTable, current_entry_IT); // Добавление идентификатора в таблицу
+                        addedToITFlag = true; // Установка флага добавления
+                    }
+
+
+                    // Проверка, является ли текущий идентификатор параметром функции
+                    if (__LexTable.table[__LexTable.size - 2].lexema[0] == LEX_LEFTTHESIS &&
+                        __LexTable.table[__LexTable.size - 3].lexema[0] == LEX_ID &&
+                        __LexTable.table[__LexTable.size - 3].idxTI == __IdTable.size - 1 &&
+                        __IdTable.table[__IdTable.size - 1].idtype == IT::F) // текущий идентификатор - параметр функции
+                    {
+                        current_entry_IT.idtype = IT::P; // Установка типа идентификатора как параметра
+                        // Если последняя лексема - строка и установлен флаг
+                        if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_STRING && stringFlag)
+                        {
+                            current_entry_IT.iddatatype = IT::STR; // Установка типа данных идентификатора как строки
+                            strcpy_s(current_entry_IT.value.vstr->str, ""); // Инициализация строки
+                            stringFlag = false; // Сброс флага
+                        }
+                        indexIT = IT::search(__IdTable, current_entry_IT); // Поиск идентификатора в таблице
+                        if (indexIT != -1) // Если идентификатор уже существует
+                        {
+                            throw ERROR_THROW(105); // Ошибка: идентификатор уже существует
+                        }
+                        current_entry_LT.idxTI = __IdTable.size; // Установка индекса для лексемы
+                        IT::Add(__IdTable, current_entry_IT); // Добавление идентификатора в таблицу
+                        addedToITFlag = true; // Установка флага добавления
+                    }
+
+                    if (__LexTable.table[__LexTable.size - 2].lexema[0] == LEX_COMMA && __IdTable.table[__LexTable.table[__LexTable.size - 2].idxTI].idtype == IT::P)
+                    {
+                        current_entry_IT.idtype = IT::P; // Установка типа идентификатора как параметра
+
+                        if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_STRING && stringFlag)
+                        {
+                            current_entry_IT.iddatatype = IT::STR; // Установка типа данных идентификатора как строки
+                            strcpy_s(current_entry_IT.value.vstr->str, ""); // Инициализация строки литерала
+                            stringFlag = false; // Сброс флага для строки
+                        }
+
+                        indexIT = IT::search(__IdTable, current_entry_IT); // Поиск идентификатора в таблице
+
+                        if (indexIT != -1) // Если идентификатор уже существует
+                        {
+                            throw ERROR_THROW(105); // Генерация ошибки: идентификатор уже существует
+                        }
+
+                        IT::Add(__IdTable, current_entry_IT); // Добавление идентификатора в таблицу
+                        addedToITFlag = true; // Установка флага, что идентификатор был добавлен
+                    }
+
+                    if (!addedToITFlag) // Если идентификатор не был добавлен
+                    {
+                        indexIT = IT::search(__IdTable, current_entry_IT); // Повторный поиск идентификатора в таблице
+
+                        if (indexIT >= 0) // Если идентификатор найден
+                        {
+
+                            current_entry_LT.idxTI = indexIT; // Установка индекса идентификатора для лексемы
+                        }
+                    }
+
+                    std::memset(current_entry_IT.id, NULL, ID_SIZE); // Обнуление идентификатора
+
+                    current_entry_IT.iddatatype = IT::INT; // Установка типа данных идентификатора как целого числа
+                    current_entry_IT.value.vint = NULL; // Инициализация значения идентификатора
+                    addedToITFlag = false; // Сброс флага добавления
+
+                    break; // Переход к следующему шагу
+                }
+
+                bufferIndex = 0;
+                //memset(str, 0, bufferIndex + 1);    //очищаем буфер
+                delete[] str;
+                str = new char[MAX_LEX_SIZE];
+
+                }
+                if (current_entry_LT.lexema[0] != NULL)    //если лексема распозналась
+                {
+                    current_entry_LT.sn = currentLine;    // добавляем ее в таблицу
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;    // обнуляем лексему
+
+
+                }
+                switch (in.text[i])
+                {
+                case MARK:
+                    if (str[0] == '\'' && bufferIndex != 1)
+                    {
+                        current_entry_LT.idxTI = __IdTable.size;
+                        str[bufferIndex] = '\0';
+                        current_entry_LT.lexema[0] = LEX_LITERAL;
+                        number_literal++;
+                        sprintf_s(current_entry_IT.id, "L%d", number_literal);
+                        current_entry_IT.iddatatype = IT::STR;
+                        current_entry_IT.idtype = IT::L;
+                        current_entry_IT.idxfirstLE = currentLine;
+                        for (int i = 0; i < strlen(str); i++)
+                        {
+                            current_entry_IT.value.vstr->str[i] = str[i];
+                        }
+                        current_entry_IT.value.vstr->str[strlen(str)] = '\0';
+                        current_entry_IT.value.vstr->len = strlen(current_entry_IT.value.vstr->str);
+                        current_entry_LT.sn = currentLine;
+                        current_entry_IT.scope = scope.top();
+                        LT::Add(__LexTable, current_entry_LT);
+                        IT::Add(__IdTable, current_entry_IT);
+                        current_entry_LT.lexema[0] = NULL;
+                        break;
+                    }
+                    break;
+                case NEW_LINE:
+                    current_entry_LT.lexema[0] = '\n';
+                    current_entry_LT.sn = currentLine;
+                    currentLine++;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                case SEMICOLON:
+                    current_entry_LT.lexema[0] = LEX_SEMICOLON;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    if (__LexTable.table[__LexTable.size - 1].lexema[0] == LEX_BRACELET)
+                    {
+                        scope.pop();
+                        functionFlag = false;
+                    }
+                    break;
+                case COMMA:
+                    current_entry_LT.lexema[0] = LEX_COMMA;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                case LEFT_BRACE:
+                    if (mainFlag)
+                    {
+                        scope.push(&__IdTable.table[__IdTable.size - 1]);
+                    }
+                    current_entry_LT.lexema[0] = LEX_LEFTBRACE;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    for (int j = __IdTable.size - 1; j >= 0; j--) // Перебор таблицы идентификаторов с конца
+                    {
+                        if (__IdTable.table[j].idtype == IT::F) // Если идентификатор - функция
+                        {
+                            scope.push(&__IdTable.table[j]); // Добавление функции в область видимости
+                            break; // Выход из цикла
+                        }
+                    }
+                    break;
+                case RIGHT_BRACE:
+                    current_entry_LT.lexema[0] = LEX_BRACELET;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    if (!scope.empty()) // Если стек области видимости не пуст
+                        scope.pop(); // Удаление верхнего элемента из стека
+                    break;
+                case LEFTTHESIS:
+                    current_entry_LT.lexema[0] = LEX_LEFTTHESIS;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    if (declareFunctionflag)
+                    {
+                        for (int j = __IdTable.size - 1; j >= 0; j--) // Перебор таблицы идентификаторов с конца
+                        {
+                            if (__IdTable.table[j].idtype == IT::F) // Если идентификатор - функция
+                            {
+                                scope.push(&__IdTable.table[j]); // Добавление функции в область видимости
+                                break; // Выход из цикла
+                            }
+                        }
+                    }
+
+
+                    break;
+                case RIGHTTHESIS:
+                    current_entry_LT.lexema[0] = LEX_RIGHTTHESIS;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    parmFlag = false;
+                    if (!scope.empty() && functionFlag)
+                    {
+                        scope.pop(); // Удаление верхнего элемента из стека области видимости
+                        functionFlag = false;
+                    }
+                    break;
+                case PLUS:
+                    current_entry_LT.lexema[0] = LEX_PLUS;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                case MINUS:
+                    current_entry_LT.lexema[0] = LEX_MINUS;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                case STAR:
+                    current_entry_LT.lexema[0] = LEX_STAR;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                case DIRSLASH:
+                    current_entry_LT.lexema[0] = LEX_DIRSLASH;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                case EQUAL:
+                    current_entry_LT.lexema[0] = LEX_EQUAL;
+                    current_entry_LT.sn = currentLine;
+                    LT::Add(__LexTable, current_entry_LT);
+                    current_entry_LT.lexema[0] = NULL;
+                    break;
+                }
+    }
+    currentLine = 1;
+    LT_file << currentLine;
+    LT_file << '\t';
+    for (int i = 0; i < __LexTable.size; i++)
+    {
+        current_entry_LT = LT::GetEntry(__LexTable, i);
+        if (currentLine != current_entry_LT.sn)
+        {
+            currentLine = current_entry_LT.sn;
+            LT_file << currentLine;
+            LT_file << '\t';
+        }
+        LT_file << current_entry_LT.lexema[0];
+    }
+    LT_file.close();
+    IT_file << std::setw(5) << "id"
+        << std::setw(10) << "datatype"
+        << std::setw(10) << "idtype"
+        << std::setw(10) << "Line"
+        << std::setw(10) << "value"
+        << std::setw(10) << "Scope" << std::endl;
+
+    for (int i = 0; i < __IdTable.size; i++) {
+        IT::Entry temp_entry = IT::GetEntry(__IdTable, i); // Получаем временный объект
+        IT_file << std::setw(5) << temp_entry.id;
+        if (temp_entry.iddatatype == 1)
+            IT_file << std::setw(10) << "INT";
+        if (temp_entry.iddatatype == 2)
+            IT_file << std::setw(10) << "STR";
+        if (temp_entry.idtype == IT::V)
+            IT_file << std::setw(10) << "V";
+        if (temp_entry.idtype == IT::L)
+            IT_file << std::setw(10) << "L";
+        if (temp_entry.idtype == IT::F)
+            IT_file << std::setw(10) << "F";
+        if (temp_entry.idtype == IT::P)
+            IT_file << std::setw(10) << "P";
+        IT_file << std::setw(10) << temp_entry.idxfirstLE;
+
+        if (temp_entry.iddatatype == IT::INT) {
+            IT_file << std::setw(10) << temp_entry.value.vint;
+        }
+        if (temp_entry.iddatatype == IT::STR) {
+            IT_file << std::setw(7);
+            for (int j = 0; j < strlen(temp_entry.value.vstr->str); j++) {
+                IT_file << temp_entry.value.vstr->str[j];
+            }
+            IT_file << std::setw(10);
+        }
+        IT_file << std::setw(10);
+        if (temp_entry.scope != NULL) {
+            for (int j = 0; j < strlen(temp_entry.scope->id); j++)
+            {
+                IT_file << temp_entry.scope->id[j];
+            }
+        }
+        IT_file << std::endl;
+    }
+    IT_file.close();
+  }
 }

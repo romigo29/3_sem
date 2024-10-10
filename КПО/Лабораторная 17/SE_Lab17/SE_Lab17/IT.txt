@@ -1,5 +1,16 @@
    id  datatype    idtype      Line     value     Scope
-   fi       INT         V         1         0         fi
-    x       INT         V         1         0         fi
-    y       INT         V         1         0         fi
-    z       INT         V         3         0         fi
+    x       INT         V         1         0
+   L0       INT         L         1         5
+    y       INT         V         2         0
+   L1       INT         L         2         3
+    z       INT         V         3         0
+    c       STR         V         4
+   fs       STR         F         7
+    a       STR         P         7         fs
+    b       STR         P         7         fs
+subst       STR         F         8         fs
+    a       STR         P         8         subst
+    p       INT         P         8         0         subst
+    n       INT         P         8         0         subst
+   L2       INT         L         9         1         subst
+   L3       INT         L         9         3         subst
