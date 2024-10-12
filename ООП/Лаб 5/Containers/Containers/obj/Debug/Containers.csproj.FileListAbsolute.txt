@@ -1,0 +1,7 @@
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\obj\Debug\Containers.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\obj\Debug\Containers.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\bin\Debug\Containers.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\bin\Debug\Containers.exe
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\bin\Debug\Containers.pdb
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\obj\Debug\Containers.exe
+D:\BSTU\3 семестр\ООП\Лаб 5\Containers\Containers\obj\Debug\Containers.pdb

@@ -1,0 +1,7 @@
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\bin\Debug\Inheritance.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\bin\Debug\Inheritance.exe
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\bin\Debug\Inheritance.pdb
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\obj\Debug\Inheritance.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\obj\Debug\Inheritance.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\obj\Debug\Inheritance.exe
+D:\BSTU\3 семестр\ООП\Лаб 4\Inheritance\Inheritance\obj\Debug\Inheritance.pdb
