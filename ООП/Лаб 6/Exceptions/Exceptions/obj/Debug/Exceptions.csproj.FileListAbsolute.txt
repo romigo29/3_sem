@@ -1,0 +1,7 @@
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\bin\Debug\Exceptions.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\bin\Debug\Exceptions.exe
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\bin\Debug\Exceptions.pdb
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\obj\Debug\Exceptions.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\obj\Debug\Exceptions.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\obj\Debug\Exceptions.exe
+D:\BSTU\3 семестр\ООП\Лаб 6\Exceptions\Exceptions\obj\Debug\Exceptions.pdb
