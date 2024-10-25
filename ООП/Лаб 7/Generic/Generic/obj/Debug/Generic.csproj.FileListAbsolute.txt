@@ -1,0 +1,10 @@
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\bin\Debug\Generic.exe.config
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\bin\Debug\Generic.exe
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\bin\Debug\Generic.pdb
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\obj\Debug\Generic.csproj.AssemblyReference.cache
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\obj\Debug\Generic.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\obj\Debug\Generic.exe
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\obj\Debug\Generic.pdb
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\bin\Debug\Newtonsoft.Json.dll
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\bin\Debug\Newtonsoft.Json.xml
+D:\BSTU\3 семестр\ООП\Лаб 7\Generic\Generic\obj\Debug\Generic.csproj.Up2Date
