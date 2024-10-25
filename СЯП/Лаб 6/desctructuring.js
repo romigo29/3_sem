@@ -22,7 +22,6 @@ for (key in admin) {
     console.log(`${key} : ${admin[key]}`);
 }
 
-
 //3
 let store = {
     state: {    //1 уровень
@@ -111,6 +110,3 @@ function sumValue(x, y, z) {
 }
 
 console.log(sumValue(...myArr));
-
-
-
