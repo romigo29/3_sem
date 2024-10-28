@@ -1,0 +1,30 @@
+   id  datatype    idtype      Line     Scope     value
+   fi1       INT         F         1         0
+    x1       INT         P         1         fi         0
+    y1       INT         P         1         fi         0
+    z3       INT         V         3         fi         0
+   fs7       STR         F         7         fi
+    a7       STR         P         7         fs
+    b7       STR         P         7         fs
+    c9       STR         V         9         fs
+subst10       STR         F        10         fs
+    a10       STR         P        10         subst
+    p10       INT         P        10         subst         0
+   L012       INT         L        12         subst         1
+   L112       INT         L        12         subst         3
+ main15       INT         V        15         0
+    x17       INT         V        17         subst         0
+    y18       INT         V        18         subst         0
+    z19       INT         V        19         subst         0
+   sa20       STR         V        20         subst
+   sb21       STR         V        21         subst
+   sc22       STR         V        22         subst
+strle23       INT         F        23         subst         0
+    p23       STR         P        23         strle
+   L224       INT         L        24         strle         1
+   L325       INT         L        25         strle         5
+   L526       STR         L        26         strle      1234567890
+   L627       STR         L        27         strle      1234567890
+   L730       STR         L        30         strle      контрольный пример
+   L732       INT         L        32         strle         4
+   L835       INT         L        35         strle         0
