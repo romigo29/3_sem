@@ -1,0 +1,14 @@
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\bin\Debug\net8.0\DelegatesEvents.exe
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\bin\Debug\net8.0\DelegatesEvents.deps.json
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\bin\Debug\net8.0\DelegatesEvents.runtimeconfig.json
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\bin\Debug\net8.0\DelegatesEvents.dll
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\bin\Debug\net8.0\DelegatesEvents.pdb
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.GeneratedMSBuildEditorConfig.editorconfig
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.AssemblyInfoInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.AssemblyInfo.cs
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.dll
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\refint\DelegatesEvents.dll
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.pdb
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\DelegatesEvents.genruntimeconfig.cache
+D:\BSTU\3 семестр\ООП\Лаб 8\DelegatesEvents\DelegatesEvents\obj\Debug\net8.0\ref\DelegatesEvents.dll
