@@ -15,7 +15,6 @@ namespace DelegatesEvents
 	{
 		public string HeroesName;
 		public int HeroesHP;
-
 	
 		public event AttackHero? Attacked;
 		public event HealHero? Healed;
@@ -56,7 +55,7 @@ namespace DelegatesEvents
 		{
 			if (HP < 0)
 			{
-				throw new ArgumentOutOfRangeException("Урон не может быть отрицателен");
+				throw new ArgumentOutOfRangeException("Лечение не может быть отрицателеньно");
 			}
 			else if (HP > 0)
 			{

@@ -33,15 +33,12 @@ namespace DelegatesEvents
 
 		public static void CountSymbols(string text)
 		{
-			Console.WriteLine($"Ткущий размер строки: {text.Length}");
+			Console.WriteLine($"Текущий размер строки: {text.Length}");
 		}
 
 		public static string RemoveSpaces(string text)
 		{
 			return text.Replace(" ", "");
 		}
-
-		public static void OperateText(string text, Func<string, string> operation) => operation(text);
-
 	}
 }
