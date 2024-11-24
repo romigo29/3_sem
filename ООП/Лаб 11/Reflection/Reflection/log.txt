@@ -1,0 +1,39 @@
+Информация о классе: Rectangle
+
+Имя сборки: Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+
+В классе есть публичные конструкторы
+
+
+Методы: 
+
+Reflection.Rectangle CreateRectangle(Int32, Int32, Int32, Int32, System.String)
+Double GetSquare()
+Int32 GetPerimeter()
+System.String GetObjType()
+Int32 GetSquareSideSize()
+Int32 GetAmount()
+Void OutputInfo(Int32, Int32, Int32, Int32)
+Void GetMaxMin(Reflection.Rectangle[], System.String)
+Int32 get_SetHeight1()
+Int32 get_SetHeight2()
+Int32 get_SetWidth1()
+Int32 get_SetWidth2()
+Boolean Equals(System.Object)
+Int32 GetHashCode()
+System.String ToString()
+System.Type GetType()
+
+Поля: 
+
+Имя свойства: SetHeight1
+Имя свойства: SetHeight2
+Имя свойства: SetWidth1
+Имя свойства: SetWidth2
+
+В классе не реализованы интерфейсы
+
+Методы с параметром: 'System.Int32'
+CreateRectangle
+OutputInfo
+

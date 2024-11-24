@@ -1,0 +1,14 @@
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\bin\Debug\net8.0\Reflection.exe
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\bin\Debug\net8.0\Reflection.deps.json
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\bin\Debug\net8.0\Reflection.runtimeconfig.json
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\bin\Debug\net8.0\Reflection.dll
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\bin\Debug\net8.0\Reflection.pdb
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.GeneratedMSBuildEditorConfig.editorconfig
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.AssemblyInfoInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.AssemblyInfo.cs
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.dll
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\refint\Reflection.dll
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.pdb
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\Reflection.genruntimeconfig.cache
+D:\BSTU\3 семестр\ООП\Лаб 11\Reflection\Reflection\obj\Debug\net8.0\ref\Reflection.dll

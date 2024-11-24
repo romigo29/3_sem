@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BSTU\\3 семестр\\ООП\\Лаб 10\\LINQ\\LINQ\\LINQ.csproj",
-      "projectName": "LINQ",
-      "projectPath": "D:\\BSTU\\3 семестр\\ООП\\Лаб 10\\LINQ\\LINQ\\LINQ.csproj",
+      "projectUniqueName": "D:\\BSTU\\3 семестр\\ООП\\Лаб 11\\Reflection\\Reflection\\Reflection.csproj",
+      "projectName": "Reflection",
+      "projectPath": "D:\\BSTU\\3 семестр\\ООП\\Лаб 11\\Reflection\\Reflection\\Reflection.csproj",
       "packagesPath": "C:\\Users\\Brian\\.nuget\\packages\\",
-      "outputPath": "D:\\BSTU\\3 семестр\\ООП\\Лаб 10\\LINQ\\LINQ\\obj\\",
+      "outputPath": "D:\\BSTU\\3 семестр\\ООП\\Лаб 11\\Reflection\\Reflection\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

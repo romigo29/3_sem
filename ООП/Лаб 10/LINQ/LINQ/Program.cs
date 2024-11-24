@@ -20,14 +20,14 @@ namespace LINQ
 									 where m.Length == n
 									 select m;
 
-			Console.Write($"Месяцы с числом букв {n}: ");
+			Console.Write($"\nМесяцы с числом букв {n}: ");
 			PrintCollection(MonthsSortedBySize);
 
 			var OnlyWinterSummerMonths = from m in Months
 										 where m.StartsWith('J') || m == "August" || m == "December" || m == "February"
 										 select m;
 
-			Console.Write("Только зиминие и летние месяцы: ");
+			Console.Write("\nТолько зиминие и летние месяцы: ");
 			PrintCollection(OnlyWinterSummerMonths);
 
 			var AlphabetSortedMonths = from m in Months
@@ -127,7 +127,6 @@ namespace LINQ
 			var MyQuery = rectangles
 				.Where(r => r.GetSquare() <= 10 && r.GetObjType() != "arbitrary")
 				.OrderBy(r => r.GetObjType())
-				.ThenBy(r => r.GetPerimeter())
 				.GroupBy(r => r.GetObjType())
 				.Select(group => new
 				{
@@ -141,8 +140,8 @@ namespace LINQ
 			foreach(var group in  MyQuery)
 			{
 				Console.WriteLine($"Тип объекта: {group.Type}");
-				Console.WriteLine($"Минимальная площадь: {group.MinPerimeterFig}");
-				Console.WriteLine($"максимальная плоащдь: {group.MaxPerimeterFig}");
+				Console.WriteLine($"Минимальный периметр: {group.MinPerimeterFig}");
+				Console.WriteLine($"максимальный периметр: {group.MaxPerimeterFig}");
 				Console.WriteLine($"Общее количество: {group.Total}");
 
 			}
