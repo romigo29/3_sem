@@ -1,0 +1,23 @@
+﻿Сборка начата 21.11.2024 15:27:03.
+Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\КПО\Asm02\SE_Asm02\SE_Asm02\SE_Asm02.vcxproj" в узле 2 (целевые объекты Build).
+     1>PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Обращение к "Debug\SE_Asm02.tlog\unsuccessfulbuild".
+       _MASM:
+         Assembling asm02.asm...
+         cmd.exe /C "C:\Users\Brian\AppData\Local\Temp\tmp230d3ea6e41d46b2afd246990e14129c.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\asm02.obj" /Fl"Debug\\" /W3 /errorReport:prompt  /Taasm02.asm
+       Link:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BSTU\3 семестр\КПО\Asm02\SE_Asm02\Debug\SE_Asm02.exe" /INCREMENTAL /ILK:"Debug\SE_Asm02.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\BSTU\3 семестр\КПО\Asm02\SE_Asm02\Debug\SE_Asm02.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BSTU\3 семестр\КПО\Asm02\SE_Asm02\Debug\SE_Asm02.lib" /MACHINE:X86 Debug\asm02.obj
+         SE_Asm02.vcxproj -> D:\BSTU\3 семестр\КПО\Asm02\SE_Asm02\Debug\SE_Asm02.exe
+       FinalizeBuildStatus:
+         Файл "Debug\SE_Asm02.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "Debug\SE_Asm02.tlog\SE_Asm02.lastbuildstate".
+     1>Сборка проекта "D:\BSTU\3 семестр\КПО\Asm02\SE_Asm02\SE_Asm02\SE_Asm02.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+    Предупреждений: 0
+    Ошибок: 0
+
+Прошло времени 00:00:01.62
