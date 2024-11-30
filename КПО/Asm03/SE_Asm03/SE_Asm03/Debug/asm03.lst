@@ -1,0 +1,156 @@
+Microsoft (R) Macro Assembler Version 14.42.34433.0	    11/26/24 17:36:04
+asm03.asm						     Page 1 - 1
+
+
+				.586P													
+				.MODEL FLAT, STDCALL									
+				includelib kernel32.lib									
+
+				ExitProcess PROTO : DWORD								
+				MessageBoxA PROTO : DWORD, : DWORD, : DWORD, : DWORD	
+
+				.STACK 4096								
+
+ 00000000			.CONST									
+
+ = 00000000			ZERO		EQU			0
+
+ 00000000			.DATA									
+
+ 00000000 10 20 30 40		myBytes		BYTE		10h, 20h, 30h, 40h
+ 00000004 008A 003B 0044	myWords		WORD		8Ah, 3Bh, 44h, 5Fh, 99h
+	   005F 0099
+ 0000000E D0 E5 E7 F3 EB	result		DB			"Результат", 0
+	   FC F2 E0 F2 00
+ 00000018 C2 20 EC E0 F1	message0	DB			"В массиве есть нулевой элемент", 0
+	   F1 E8 E2 E5 20
+	   E5 F1 F2 FC 20
+	   ED F3 EB E5 E2
+	   EE E9 20 FD EB
+	   E5 EC E5 ED F2
+	   00
+ 00000037 C2 20 EC E0 F1	message1	DB			"В массиве нет нулевого элемента", 0
+	   F1 E8 E2 E5 20
+	   ED E5 F2 20 ED
+	   F3 EB E5 E2 EE
+	   E3 EE 20 FD EB
+	   E5 EC E5 ED F2
+	   E0 00
+ 00000057 00000001		myDoubles	DWORD		1, 2, 3, 4, 5, 6
+	   00000002
+	   00000003
+	   00000004
+	   00000005
+	   00000006
+ 0000006F 00000057 R		myPointer	DWORD		myDoubles
+ 00000073 00000000		myArray		DWORD		0, 7, 4, 3, 6, 7, 9
+	   00000007
+	   00000004
+	   00000003
+	   00000006
+	   00000007
+	   00000009
+ 0000008F 00000000		HW			DD			?
+
+ 00000000			.CODE									
+
+ 00000000			main PROC 								
+
+ 00000000  BE 00000000 R		mov ESI, OFFSET myBytes				
+ 00000005  8A 66 01			mov AH, [ESI + 1]
+ 00000008  8A 46 03			mov AL, [ESI + 3]
+
+ 0000000B  BE 00000073 R		mov ESI, offset myArray				
+ 00000010  B9 00000007			mov ECX, lengthof myArray			
+
+ 00000015  B8 00000000			mov EAX, ZERO
+
+ 0000001A			CYCLE:
+
+ 0000001A  03 06			add EAX, [esi]						
+ 0000001C  83 C6 04			add	ESI, type myArray				;обращаемся к следующему элементу массива
+ 0000001F  E2 F9			loop CYCLE							;переходим к следующей итерации цикла, пока ecx != 0
+
+ 00000021  BE 00000073 R		mov ESI, offset myArray				;загрузка относительного адреса массив с помощью offset
+ 00000026  B9 00000007			mov ECX, lengthof myArray
+ 0000002B			CHECK_ZERO:
+ 0000002B  83 3E 00			cmp dword ptr [ESI], ZERO
+ 0000002E  74 07			je CASE_ZERO
+ 00000030  83 C6 04			add ESI, type myArray
+ 00000033  E2 F6			loop CHECK_ZERO
+					
+ 00000035  EB 1E			jmp CASE_ONE
+
+ 00000037			CASE_ZERO:
+ 00000037  BB 00000000			mov EBX, zero
+					INVOKE MessageBoxA, HW, offset message0, offset result, ZERO
+ 00000053  EB 1C			jmp ENDING
+
+ 00000055			CASE_ONE:
+ 00000055  BB 00000001			mov EBX, 1
+					INVOKE MessageBoxA, HW, offset message1, offset result, ZERO
+
+ 00000071			ENDING:
+ 00000071  6A 00			push 0								
+ 00000073  E8 00000000 E		call ExitProcess					
+
+ 00000078			main ENDP								
+
+				end main
+Microsoft (R) Macro Assembler Version 14.42.34433.0	    11/26/24 17:36:04
+asm03.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CONST  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'CONST'	 ReadOnly
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000093 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000078 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MessageBoxA  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000078 Public STDCALL
+  CYCLE  . . . . . . . . . . . .	L Near	 0000001A _TEXT	
+  CHECK_ZERO . . . . . . . . . .	L Near	 0000002B _TEXT	
+  CASE_ZERO  . . . . . . . . . .	L Near	 00000037 _TEXT	
+  CASE_ONE . . . . . . . . . . .	L Near	 00000055 _TEXT	
+  ENDING . . . . . . . . . . . .	L Near	 00000071 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+HW . . . . . . . . . . . . . . .	DWord	 0000008F _DATA	
+ZERO . . . . . . . . . . . . . .	Number	 00000000h   
+message0 . . . . . . . . . . . .	Byte	 00000018 _DATA	
+message1 . . . . . . . . . . . .	Byte	 00000037 _DATA	
+myArray  . . . . . . . . . . . .	DWord	 00000073 _DATA	
+myBytes  . . . . . . . . . . . .	Byte	 00000000 _DATA	
+myDoubles  . . . . . . . . . . .	DWord	 00000057 _DATA	
+myPointer  . . . . . . . . . . .	DWord	 0000006F _DATA	
+myWords  . . . . . . . . . . . .	Word	 00000004 _DATA	
+result . . . . . . . . . . . . .	Byte	 0000000E _DATA	
+
+	   0 Warnings
+	   0 Errors
