@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRectangle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Rectangle>
+    <X>4</X>
+    <Y>5</Y>
+    <Height>100</Height>
+    <Width>200</Width>
+  </Rectangle>
+  <Rectangle>
+    <X>7</X>
+    <Y>8</Y>
+    <Height>150</Height>
+    <Width>250</Width>
+  </Rectangle>
+  <Rectangle>
+    <X>1</X>
+    <Y>4</Y>
+    <Height>300</Height>
+    <Width>200</Width>
+  </Rectangle>
+</ArrayOfRectangle>

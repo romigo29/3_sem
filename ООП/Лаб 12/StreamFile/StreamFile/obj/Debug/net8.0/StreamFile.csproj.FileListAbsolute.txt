@@ -1,0 +1,14 @@
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.GeneratedMSBuildEditorConfig.editorconfig
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.AssemblyInfoInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.AssemblyInfo.cs
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\bin\Debug\net8.0\StreamFile.exe
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\bin\Debug\net8.0\StreamFile.deps.json
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\bin\Debug\net8.0\StreamFile.runtimeconfig.json
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\bin\Debug\net8.0\StreamFile.dll
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\bin\Debug\net8.0\StreamFile.pdb
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.dll
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\refint\StreamFile.dll
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.pdb
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\StreamFile.genruntimeconfig.cache
+D:\BSTU\3 семестр\ООП\Лаб 12\StreamFile\StreamFile\obj\Debug\net8.0\ref\StreamFile.dll

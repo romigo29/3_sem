@@ -1,0 +1,14 @@
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.GeneratedMSBuildEditorConfig.editorconfig
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.AssemblyInfoInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.AssemblyInfo.cs
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.csproj.CoreCompileInputs.cache
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\bin\Debug\net8.0\Serialization.exe
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\bin\Debug\net8.0\Serialization.deps.json
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\bin\Debug\net8.0\Serialization.runtimeconfig.json
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\bin\Debug\net8.0\Serialization.dll
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\bin\Debug\net8.0\Serialization.pdb
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.dll
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\refint\Serialization.dll
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.pdb
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\Serialization.genruntimeconfig.cache
+D:\BSTU\3 семестр\ООП\Лаб 13\Serialization\Serialization\obj\Debug\net8.0\ref\Serialization.dll
