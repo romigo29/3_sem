@@ -1,0 +1,114 @@
+Microsoft (R) Macro Assembler Version 14.42.34433.0	    12/10/24 22:37:02
+asm01.asm						     Page 1 - 1
+
+
+				.586P
+				.MODEL FLAT, STDCALL
+				includelib kernel32.lib
+
+				ExitProcess PROTO : DWORD
+				MessageBoxA PROTO : DWORD, : DWORD, : DWORD, : DWORD
+				SetConsoleTitleA PROTO : DWORD
+
+				getmin PROTO : DWORD, : DWORD
+
+				.STACK 4096
+
+ 00000000			.CONST
+
+ 00000000			.DATA
+
+ 00000000 00000009		INT_ARRAY		DWORD		9, 6, 5, 8, 3, 4, 1, 8, 2, 10
+	   00000006
+	   00000005
+	   00000008
+	   00000003
+	   00000004
+	   00000001
+	   00000008
+	   00000002
+	   0000000A
+ 00000028 63 6F 6E 73 6F	consoletitle	DB			"console", 0
+	   6C 65 00
+
+ 00000000			.CODE
+
+
+ 00000000			getmin PROC parm1 : DWORD, parm2 : DWORD
+ 00000003			START:
+ 00000003  8B 4D 0C			mov ecx, parm2
+ 00000006  8B 75 08			mov esi, parm1
+ 00000009  8B 06			mov eax, [esi]
+
+ 0000000B				loop_start:
+ 0000000B  3B 06				cmp eax, [esi]
+ 0000000D  7E 02				jle move_next
+ 0000000F  8B 06				mov eax, [esi]
+
+ 00000011					move_next:
+ 00000011  83 C6 04				add esi, type parm1
+
+ 00000014  E2 F5			loop loop_start
+
+ 00000016			getmin ENDP
+asm01.asm(39) : warning A6001:no return from procedure
+ 00000016			main PROC
+
+					INVOKE getmin, OFFSET INT_Array, LENGTHOF INT_ARRAY
+ 00000022  68 00000028 R		push offset consoletitle
+ 00000027  E8 00000000 E		call SetConsoleTitleA
+ 0000002C  6A 00			push 0
+ 0000002E  E8 00000000 E		call ExitProcess
+ 00000033			main ENDP
+				end main
+Microsoft (R) Macro Assembler Version 14.42.34433.0	    12/10/24 22:37:02
+asm01.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CONST  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'CONST'	 ReadOnly
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000030 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000033 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+MessageBoxA  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SetConsoleTitleA . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+getmin . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000016 Public STDCALL
+  parm1  . . . . . . . . . . . .	DWord	 bp + 00000008
+  parm2  . . . . . . . . . . . .	DWord	 bp + 0000000C
+  START  . . . . . . . . . . . .	L Near	 00000003 _TEXT	
+  loop_start . . . . . . . . . .	L Near	 0000000B _TEXT	
+  move_next  . . . . . . . . . .	L Near	 00000011 _TEXT	
+main . . . . . . . . . . . . . .	P Near	 00000016 _TEXT	Length= 0000001D Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+INT_ARRAY  . . . . . . . . . . .	DWord	 00000000 _DATA	
+consoletitle . . . . . . . . . .	Byte	 00000028 _DATA	
+
+	   1 Warnings
+	   0 Errors

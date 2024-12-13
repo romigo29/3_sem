@@ -1,0 +1,27 @@
+﻿Сборка начата 10.12.2024 22:37:02.
+Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01b\SE_asm01b.vcxproj" в узле 5 (целевые объекты Rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\SE_asm01b.tlog\SE_asm01b.lastbuildstate" удаляется.
+       PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Обращение к "Debug\SE_asm01b.tlog\unsuccessfulbuild".
+       _MASM:
+         Assembling SE_asm01b.asm...
+         cmd.exe /C "C:\Users\Brian\AppData\Local\Temp\tmp558bd425d5e047fda45edc5ab59c98da.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\SE_asm01b.obj" /W3 /errorReport:prompt  /TaSE_asm01b.asm
+       Link:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01b.exe" /INCREMENTAL /ILK:"Debug\SE_asm01b.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01b.lib" /MACHINE:X86 Debug\SE_asm01b.obj
+     1>LINK : fatal error LNK1104: не удается открыть файл "..\Debug\SE_asm01a.lib"
+     1>Сборка проекта "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01b\SE_asm01b.vcxproj" завершена (целевые объекты Rebuild) с ошибкой.
+
+Ошибка сборки.
+
+       "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01b\SE_asm01b.vcxproj" (целевой объект Rebuild ) (1) ->
+       (Целевой объект Link) -> 
+         LINK : fatal error LNK1104: не удается открыть файл "..\Debug\SE_asm01a.lib"
+
+    Предупреждений: 0
+    Ошибок: 1
+
+Прошло времени 00:00:00.57
