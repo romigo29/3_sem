@@ -1,0 +1,25 @@
+﻿Сборка начата 10.12.2024 22:37:02.
+Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01d\SE_asm01d.vcxproj" в узле 2 (целевые объекты Rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\SE_asm01d.tlog\SE_asm01d.lastbuildstate" удаляется.
+       PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Создание "Debug\SE_asm01d.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\SE_asm01d.tlog\unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"Debug\\" /Fd"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01d.pdb" /external:W3 /Gd /TP /analyze- /FC /errorReport:prompt SE_asm01d.cpp
+         SE_asm01d.cpp
+       Lib:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\Lib.exe /OUT:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01d.lib" /NOLOGO /MACHINE:X86 Debug\SE_asm01d.obj
+         SE_asm01d.vcxproj -> D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01d.lib
+       FinalizeBuildStatus:
+         Файл "Debug\SE_asm01d.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "Debug\SE_asm01d.tlog\SE_asm01d.lastbuildstate".
+     1>Сборка проекта "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01d\SE_asm01d.vcxproj" завершена (целевые объекты Rebuild).
+
+Сборка успешно завершена.
+    Предупреждений: 0
+    Ошибок: 0
+
+Прошло времени 00:00:00.41

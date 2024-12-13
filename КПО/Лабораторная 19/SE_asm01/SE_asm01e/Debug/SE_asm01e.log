@@ -1,0 +1,32 @@
+﻿Сборка начата 10.12.2024 22:37:02.
+Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01e\SE_asm01e.vcxproj" в узле 3 (целевые объекты Rebuild).
+     1>_PrepareForClean:
+         Файл "Debug\SE_asm01e.tlog\SE_asm01e.lastbuildstate" удаляется.
+       PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Создание "Debug\SE_asm01e.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\SE_asm01e.tlog\unsuccessfulbuild".
+       _MASM:
+         Assembling SE_asm01e.asm...
+         cmd.exe /C "C:\Users\Brian\AppData\Local\Temp\tmp3609dbba640d43428606d6e9ab2e5fe4.cmd"
+         ml.exe /c /nologo /Zi /Fo"Debug\SE_asm01e.obj" /W3 /errorReport:prompt  /TaSE_asm01e.asm
+       Link:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\bin\HostX86\x86\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01e.exe" /INCREMENTAL /ILK:"Debug\SE_asm01e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01e.lib" /MACHINE:X86 Debug\SE_asm01e.obj
+     1>LINK : warning LNK4098: библиотека по умолчанию "libucrt.lib" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+         SE_asm01e.vcxproj -> D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\Debug\SE_asm01e.exe
+       FinalizeBuildStatus:
+         Файл "Debug\SE_asm01e.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "Debug\SE_asm01e.tlog\SE_asm01e.lastbuildstate".
+     1>Сборка проекта "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01e\SE_asm01e.vcxproj" завершена (целевые объекты Rebuild).
+
+Сборка успешно завершена.
+
+       "D:\BSTU\3 семестр\КПО\Лабораторная 19\SE_asm01\SE_asm01e\SE_asm01e.vcxproj" (целевой объект Rebuild ) (1) ->
+       (Целевой объект Link) -> 
+         LINK : warning LNK4098: библиотека по умолчанию "libucrt.lib" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+
+    Предупреждений: 1
+    Ошибок: 0
+
+Прошло времени 00:00:00.91
