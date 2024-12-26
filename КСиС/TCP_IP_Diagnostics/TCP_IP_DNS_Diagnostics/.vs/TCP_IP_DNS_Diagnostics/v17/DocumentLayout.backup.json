@@ -1,0 +1,59 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\BSTU\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041A\u0421\u0438\u0421\\7\\TCP_IP_DNS_Diagnostics\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8DDB269F-20AF-4B1D-80DC-A5AA6136C6FB}|TCP_IP_DNS_Diagnostics\\TCP_IP_DNS_Diagnostics.vcxproj|D:\\BSTU\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041A\u0421\u0438\u0421\\7\\TCP_IP_DNS_Diagnostics\\TCP_IP_DNS_Diagnostics\\code.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{8DDB269F-20AF-4B1D-80DC-A5AA6136C6FB}|TCP_IP_DNS_Diagnostics\\TCP_IP_DNS_Diagnostics.vcxproj|solutionrelative:TCP_IP_DNS_Diagnostics\\code.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 568,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "code.cpp",
+              "DocumentMoniker": "D:\\BSTU\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041A\u0421\u0438\u0421\\7\\TCP_IP_DNS_Diagnostics\\TCP_IP_DNS_Diagnostics\\code.cpp",
+              "RelativeDocumentMoniker": "TCP_IP_DNS_Diagnostics\\code.cpp",
+              "ToolTip": "D:\\BSTU\\3 \u0441\u0435\u043C\u0435\u0441\u0442\u0440\\\u041A\u0421\u0438\u0421\\7\\TCP_IP_DNS_Diagnostics\\TCP_IP_DNS_Diagnostics\\code.cpp",
+              "RelativeToolTip": "TCP_IP_DNS_Diagnostics\\code.cpp",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAAAI0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-11-01T09:50:50.71Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 410,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

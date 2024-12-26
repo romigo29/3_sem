@@ -1,0 +1,67 @@
+﻿Сборка начата 01.11.2024 15:27:35.
+Уровень детализации журнала: Normal.     1>Проект "D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics.vcxproj" в узле 2 (целевые объекты Build).
+     1>PrepareForBuild:
+         Структурированный вывод включен. Форматирование диагностики компилятора будет отражать иерархию ошибок. Подробнее см. https://aka.ms/cpp/structured-output.
+       InitializeBuildStatus:
+         Создание "x64\Debug\TCP_IP_D.8ddb269f.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "x64\Debug\TCP_IP_D.8ddb269f.tlog\unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt code.cpp
+         code.cpp
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(14,1): warning C4005: IP_DEST_NET_UNREACHABLE: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(173,1):
+         см. предыдущее определение "IP_DEST_NET_UNREACHABLE"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(15,1): warning C4005: IP_DEST_HOST_UNREACHABLE: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(174,1):
+         см. предыдущее определение "IP_DEST_HOST_UNREACHABLE"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(16,1): warning C4005: IP_DEST_PROT_UNREACHABLE: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(175,1):
+         см. предыдущее определение "IP_DEST_PROT_UNREACHABLE"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(17,1): warning C4005: IP_DEST_PORT_UNREACHABLE: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(176,1):
+         см. предыдущее определение "IP_DEST_PORT_UNREACHABLE"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(18,1): warning C4005: IP_REQ_TIMED_OUT: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(181,1):
+         см. предыдущее определение "IP_REQ_TIMED_OUT"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(19,1): warning C4005: IP_BAD_REQ: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(182,1):
+         см. предыдущее определение "IP_BAD_REQ"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(20,1): warning C4005: IP_BAD_ROUTE: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(183,1):
+         см. предыдущее определение "IP_BAD_ROUTE"
+         
+     1>D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(21,1): warning C4005: IP_TTL_EXPIRED_TRANSIT: изменение макроопределения
+         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ipexport.h(184,1):
+         см. предыдущее определение "IP_TTL_EXPIRED_TRANSIT"
+         
+       Link:
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\HostX64\x64\link.exe /ERRORREPORT:PROMPT /OUT:"D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\x64\Debug\TCP_IP_DNS_Diagnostics.exe" /INCREMENTAL /ILK:"x64\Debug\TCP_IP_DNS_Diagnostics.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\x64\Debug\TCP_IP_DNS_Diagnostics.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\x64\Debug\TCP_IP_DNS_Diagnostics.lib" /MACHINE:X64 x64\Debug\code.obj
+         TCP_IP_DNS_Diagnostics.vcxproj -> D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\x64\Debug\TCP_IP_DNS_Diagnostics.exe
+       FinalizeBuildStatus:
+         Файл "x64\Debug\TCP_IP_D.8ddb269f.tlog\unsuccessfulbuild" удаляется.
+         Обращение к "x64\Debug\TCP_IP_D.8ddb269f.tlog\TCP_IP_DNS_Diagnostics.lastbuildstate".
+     1>Сборка проекта "D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics.vcxproj" завершена (целевые объекты Build).
+
+Сборка успешно завершена.
+
+       "D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics.vcxproj" (целевой объект Build ) (1) ->
+       (Целевой объект ClCompile) -> 
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(14,1): warning C4005: IP_DEST_NET_UNREACHABLE: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(15,1): warning C4005: IP_DEST_HOST_UNREACHABLE: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(16,1): warning C4005: IP_DEST_PROT_UNREACHABLE: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(17,1): warning C4005: IP_DEST_PORT_UNREACHABLE: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(18,1): warning C4005: IP_REQ_TIMED_OUT: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(19,1): warning C4005: IP_BAD_REQ: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(20,1): warning C4005: IP_BAD_ROUTE: изменение макроопределения
+         D:\BSTU\3 семестр\КСиС\7\TCP_IP_DNS_Diagnostics\TCP_IP_DNS_Diagnostics\code.cpp(21,1): warning C4005: IP_TTL_EXPIRED_TRANSIT: изменение макроопределения
+
+    Предупреждений: 8
+    Ошибок: 0
+
+Прошло времени 00:00:05.49
