@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./sudoku.css" rel="stylesheet">
+    <title>Sudoku Game</title>
+</head>
+
+<body>
+    <h1>Sudoku Game</h1>
+
+    <div class="board" id="board"></div>
+
+    <div class="buttons">
+        <button onclick="generateNewGame()">Сгенерировать новое поле</button>
+        <button onclick="checkErrors()">Проверить ошибки</button>
+        <button onclick="generateSolvedBoard()">Сгенерировать готовое решение</button>
+    </div>
+
+    <script src="./sudoku.js"></script>
+</body>
+
+</html>
