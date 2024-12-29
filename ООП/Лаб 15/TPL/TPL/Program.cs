@@ -10,32 +10,41 @@ namespace TPL
 	{
 		static void Main(string[] args)
 		{
-			/*//1
-			PrimeNumbers.ShowCase();*/
 
-			/*//2
-			PrimeNumbersCancellation.ShowCase();*/
+			try
+			{
+				/*//1
+				PrimeNumbers.ShowCase();*/
 
-			/*//3
-			CombinationTask.Showcase();*/
+				//2
+				PrimeNumbersCancellation.ShowCase();
 
-			//4
-			/*ContinuationTask.ShowcaseWith();
-			Task.Delay(1000).Wait();
-			ContinuationTask.ShowcaseAwait();*/
+				/*//3
+				CombinationTask.Showcase();*/
 
-			/*//5
-			ParallelMethods.For();
-			ParallelMethods.Foreach();*/
+				/*//4
+				ContinuationTask.ShowcaseWith();
+				ContinuationTask.ShowcaseAwait();
+				Task.Delay(1000).Wait();*/
 
-			/*//6
-			ParallelMethods.ShowcaseInvoke();*/
+				/*//5
+				ParallelMethods.For();
+				ParallelMethods.Foreach();*/
 
-			// 7
-			Store.Showcase();
+				/*//6
+				ParallelMethods.ShowcaseInvoke();*/
 
-			/*//8
-			AsyncMethods.Showcase();*/
+				/*// 7
+				Store.Showcase();*/
+
+				/*//8
+				AsyncMethods.Showcase();*/
+			}
+
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Ошибка: {ex.Message}");
+			}
 		}
 	}
 }

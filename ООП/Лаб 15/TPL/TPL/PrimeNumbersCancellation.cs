@@ -14,58 +14,65 @@ namespace TPL
 		{
 			Stopwatch stopwatch = new Stopwatch();
 			CancellationTokenSource tokenSource = new CancellationTokenSource();
+			
 			CancellationToken token = tokenSource.Token;
-			Task task = new Task(() => EratosthenesSieve(token), token);
 
+			Task task = Task.Run(() => EratosthenesSieve(token), token);
 			stopwatch.Start();
-			task.Start();
+			task.Wait();
 
-			Thread.Sleep(2000);
 			Console.WriteLine($"Статус задачи №{task.Id}: {task.Status}");
-			tokenSource.Cancel();
 			stopwatch.Stop();
-
+		
 			Console.WriteLine($"\nСтатус задачи №{task.Id}: {task.Status}");
 			Console.WriteLine($"\nЗатраченное время: {stopwatch.ElapsedMilliseconds} милисекунд");
 		}
 
-		static public void EratosthenesSieve(CancellationToken token)
+		static public async Task EratosthenesSieve(CancellationToken token)
 		{
-			Console.Write("Введите число n (поиск простых чисел от 2 до n: ");
-			int n = Convert.ToInt32(Console.ReadLine());
-			List<int> sieve = new List<int>();
+			Console.Write("Введите число n (поиск простых чисел от 2 до n): ");
+			var inputTask = Task.Run(Console.ReadLine);
 
-			for (int i = 2; i < n; i++)
+			if (await Task.WhenAny(inputTask, Task.Delay(2000, token)) == inputTask)
 			{
-				sieve.Add(i);
+	
+				int n = Convert.ToInt32(await inputTask);
+				List<int> sieve = new List<int>();
+
+				for (int i = 2; i < n; i++)
+				{
+					sieve.Add(i);
+				}
+
+				for (int i = 0; i < sieve.Count; i++)
+				{
+					if (token.IsCancellationRequested)
+					{
+						Console.WriteLine("\nОперация была остановлена.");
+						return; 
+					}
+
+					for (int j = 2; j < n; j++)
+					{
+						sieve.Remove(sieve[i] * j);
+					}
+				}
+
+				Console.Write("Простые числа из заданного диапазона: ");
+				foreach (var element in sieve)
+				{
+					if (token.IsCancellationRequested)
+					{
+						Console.WriteLine("\nОперация была остановлена во время вывода результата.");
+						return;
+					}
+					Console.Write($"{element} ");
+					Thread.Sleep(200);
+				}
 			}
-
-			bool Removed = false;
-			for (int i = 0; i < sieve.Count; i++)
+			else
 			{
-				if (token.IsCancellationRequested)
-				{
-					Console.WriteLine("Выполнение задачи превысило лимит по времени");
-					return;
-				}
-				for (int j = 2; j < n; j++)
-				{
-					
-					sieve.Remove(sieve[i] * j);
-					Removed = true;
-				}
-
-				if (!Removed)
-				{
-					break;
-				}
-			}
-
-			Console.Write("Простые числа из заданного диапазона: ");
-			foreach (var element in sieve)
-			{
-				Console.Write($"{element} ");
-				Thread.Sleep(200);
+				Console.WriteLine("\nТаймаут ввода. Операция остановлена.");
 			}
 		}
 	}
